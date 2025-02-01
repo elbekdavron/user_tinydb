@@ -12,8 +12,9 @@ def read_csv(file_path):
 
 
 def insert_into_db(data, db_path):
-    
-    pass
+    db = TinyDB(db_path)
+    for info in data:
+        db.insert(info)
 
 def query_db(db_path, query_field, query_value):
     
@@ -26,6 +27,7 @@ if __name__ == "__main__":
 
     data = read_csv(csv_file_path)
     
+    insert_into_db(data, db_file_path)
     
     
     
