@@ -22,7 +22,8 @@ def query_db(db_path, query_field, query_value):
     User = Query()
     if query_field and query_value:  
         return db.search(User[query_field] == query_value)
-    
+    else:
+        return db.all()
 
 if __name__ == "__main__":
     
