@@ -18,7 +18,11 @@ def insert_into_db(data, db_path):
 
 def query_db(db_path, query_field, query_value):
     
-    pass
+    db = TinyDB(db_path)
+    User = Query()
+    if query_field and query_value:  
+        return db.search(User[query_field] == query_value)
+    
 
 if __name__ == "__main__":
     
@@ -28,10 +32,13 @@ if __name__ == "__main__":
     data = read_csv(csv_file_path)
     
     insert_into_db(data, db_file_path)
+
+    teachers = query_db('user.json', 'job', 'Teacher')
+    print(teachers)
     
     
     
-    
+
     
     
     
